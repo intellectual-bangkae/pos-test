@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-
 <html>
-   <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-      <base target="_top">
-   </head>
-   <body>
-      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 0;" src="https://script.google.com/macros/s/AKfycbzZDh3_t2GAru_qFjVbTZ_5bdB1V4xSFIzQ_x8LFuJjEWL2GeAT8UAHKDos_QKg6_0n/exec"></iframe>
-   </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base target="_top">
+</head>
+<body>
+  <h2>ข้อมูลจาก Google Apps Script</h2>
+  <div id="output">กำลังโหลดข้อมูล...</div>
+
+  <script>
+    fetch("https://script.google.com/macros/s/AKfycbzZDh3_t2GAru_qFjVbTZ_5bdB1V4xSFIzQ_x8LFuJjEWL2GeAT8UAHKDos_QKg6_0n/exec")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("output").innerHTML = data;
+      })
+      .catch(error => console.error("เกิดข้อผิดพลาด:", error));
+  </script>
+</body>
 </html>
